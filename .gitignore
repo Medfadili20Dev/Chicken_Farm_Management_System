@@ -1,56 +1,64 @@
-target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
-.kotlin
+# ============================================
+# Chicken Farm Management System - .gitignore
+# ============================================
 
-### IntelliJ IDEA ###
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
+# ============================================
+# Maven
+# ============================================
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# ============================================
+# IntelliJ IDEA
+# ============================================
+.idea/
 *.iws
 *.iml
 *.ipr
+out/
+.idea_modules/
+atlassian-ide-plugin.xml
 
-### Eclipse ###
-.apt_generated
+# ============================================
+# Eclipse
+# ============================================
 .classpath
-.factorypath
 .project
-.settings
-.springBeans
-.sts4-cache
+.settings/
+bin/
+.metadata
+.recommenders
+*.launch
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
-
-### VS Code ###
+# ============================================
+# VS Code
+# ============================================
 .vscode/
+*.code-workspace
 
-### Mac OS ###
-.DS_Store
+# ============================================
+# NetBeans
+# ============================================
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+build/
 
-# Compiled class file
+# ============================================
+# Java
+# ============================================
 *.class
-
-# Log file
 *.log
-
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
 *.jar
 *.war
 *.nar
@@ -58,7 +66,99 @@ build/
 *.zip
 *.tar.gz
 *.rar
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+
+# ============================================
+# SQLite Database (IMPORTANT!)
+# ============================================
+database/farm.db
+database/*.db
+database/*.db-journal
+database/*.db-shm
+database/*.db-wal
+*.sqlite
+*.sqlite3
+*.db
+
+# ============================================
+# Operating System
+# ============================================
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# ============================================
+# Temporary Files
+# ============================================
+*.tmp
+*.temp
+*.swp
+*.swo
+*~.nib
+*.bak
+*.orig
+
+# ============================================
+# Logs
+# ============================================
+logs/
+*.log
+*.log.*
+
+# ============================================
+# JavaFX (if using Scene Builder)
+# ============================================
+*.fxbuild
+
+# ============================================
+# Package Files
+# ============================================
+*.7z
+*.dmg
+*.gz
+*.iso
+*.tar
+*.zip
+
+# ============================================
+# Test Coverage Reports
+# ============================================
+.coverage
+*.cover
+coverage/
+htmlcov/
+
+# ============================================
+# Build and Distribution
+# ============================================
+build/
+dist/
+lib/
+
+# ============================================
+# Don't ignore schema.sql (we need this!)
+# ============================================
+!src/main/resources/database/schema.sql
