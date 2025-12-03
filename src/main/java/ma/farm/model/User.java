@@ -37,6 +37,11 @@ public class User implements IUser {
         this.email = email;
         this.password = password;
     }
+
+    public User(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
     
     // Getters and Setters
     @Override

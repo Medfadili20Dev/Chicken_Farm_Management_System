@@ -208,4 +208,18 @@ public class UserDAO {
         }
         return 0;
     }
+
+    public User authenticate(String email, String password) {
+        if (validate(email, password)) return getUserByEmail(email);
+        else throw new SecurityException("Invalid email or password");
+    }
+
+    public void login(String email, String password) {
+        try {
+            User user = authenticate(email, password);
+            System.out.println("Login successful for user: " + user.getUsername());
+        } catch (SecurityException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }
