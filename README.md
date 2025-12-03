@@ -248,7 +248,7 @@ The initial MVP release includes the following pages and functionalities:
 ![Daily Data Entry](UmlDiagrams/Version_MVP/Séquences/ChickenFarmSequenceDiagram.png)
 
 #### 🎯 Use Case Diagram - Internal Operations
-![Internal Operations](UmlDiagrams/Version_MVP/Use Case/ChickenFarmUseCaseDiagram.png)
+![Internal Operations](UmlDiagrams/Version_MVP/UseCase/ChickenFarmUseCaseDiagram.png)
 
 ### Final Version
 
