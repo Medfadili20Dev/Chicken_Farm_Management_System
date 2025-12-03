@@ -1,14 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="CONTROLLER_NAME"
-            prefHeight="400.0" prefWidth="600.0">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ma.farm.controller.LoginController">
+    <left>
+        <!-- Left Side - Brand Section -->
+        <VBox fx:id="leftPanel" alignment="CENTER" prefHeight="700.0" prefWidth="389.0" style="-fx-background-radius: 0 10 10 0;" styleClass="brand-panel" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <ImageView fx:id="logoImage" fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" styleClass="brand-logo">
+                    <image>
+                        <Image url="@../images/logo.png" />
+                    </image>
+                </ImageView>
+                <Text styleClass="brand-title" text="Poultry Farm" />
+                <Text styleClass="brand-subtitle" text="Management" />
+                <Label styleClass="brand-tagline" text="Gérez votre ferme avicole avec efficacité" />
+            </children>
+        </VBox>
+    </left>
+        <!-- Right Side - Login Form -->
+    <center>
+        <VBox fx:id="rightPanel" alignment="CENTER" prefHeight="700.0" prefWidth="609.0" styleClass="login-panel" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="390.66666666666663" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <!-- Login Form Container -->
+                <VBox maxWidth="440.0" prefHeight="451.0" prefWidth="440.0" styleClass="login-container">
+                    <children>
+                        <!-- Header -->
+                        <VBox styleClass="login-header">
+                            <children>
+                                <Label styleClass="login-title" text="Connexion" />
+                                <Label styleClass="login-subtitle" text="Accédez à votre tableau de bord" />
+                            </children>
+                        </VBox>
 
-</AnchorPane>
+                        <!-- Form Fields -->
+                        <VBox maxWidth="368.0" minWidth="400.0" prefHeight="303.0" styleClass="form-container">
+                            <children>
+                                <!-- Username Field -->
+                                <VBox styleClass="input-group">
+                                    <Label styleClass="input-label" text="E-Mail" />
+                                    <TextField fx:id="emailField" promptText="Entrez votre e-mail" styleClass="text-field" />
+                                </VBox>
+
+                                <!-- Password Field -->
+                                <VBox styleClass="input-group">
+                                    <Label styleClass="input-label" text="Mot de passe" />
+                                    <PasswordField fx:id="passwordFeild" promptText="Entrez votre mot de passe" styleClass="password-field" />
+                                </VBox>
+
+                                <!-- Login Button -->
+                                <Button fx:id="loginButton" minWidth="150.0" prefWidth="150.0" styleClass="login-button" text="Se Connecter" />
+                            </children>
+                        </VBox>
+
+                        <!-- Footer -->
+                        <VBox styleClass="error-message">
+                            <Label fx:id="errorLabel" styleClass="error-text" text="e-mail ou mot de passe incorrect." visible="false">
+                        <font>
+                           <Font name="System Bold Italic" size="11.0" />
+                        </font></Label>
+                        </VBox>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>
