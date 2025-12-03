@@ -188,7 +188,7 @@ Chicken_Farm_Management_System/
 │   │       │   │   └── storage.png
 │   │       │   │   └── task.png
 │   │       │   │   └── personnel.png
-│   │       │   └── personnel.png
+│   │       │   └── logo.png
 │   │       │
 │   │       └── database/
 │   │           └── schema.sql
@@ -223,6 +223,93 @@ This project follows the **MVC (Model-View-Controller)** architectural pattern:
 - **DAO**: Data Access Objects providing a clean interface to database operations
 
 ---
+
+## 🚀 Team Setup Instructions
+
+### For Team Members:
+
+#### Step 1: Clone the Repository in IntelliJ IDEA
+1. **Open IntelliJ IDEA**
+2. Click the **hamburger menu** (three lines) in the top left corner
+3. Go to **Git** → **Clone**
+4. Paste this URL:
+   ```
+   https://github.com/Medfadili20Dev/Chicken_Farm_Management_System.git
+   ```
+5. Click **Clone** and wait for it to finish
+
+#### Step 2: Set Up Git Remote and Switch to Dev Branch
+1. **Open the Terminal** in IntelliJ (bottom toolbar)
+2. Add the upstream remote:
+   ```bash
+   git remote add upstream https://github.com/Medfadili20Dev/Chicken_Farm_Management_System.git
+   ```
+3. Switch to the dev branch:
+   ```bash
+   git checkout dev
+   ```
+
+#### Step 3: Reload Maven Project
+1. Click the **Maven button** (M logo) in the right sidebar
+2. Click the **Reload All Maven Projects** icon (circular arrows/recycle logo)
+3. Wait for Maven to download all dependencies
+
+#### Step 4: Run the Application
+
+**Option A: Using Maven (Recommended)**
+1. In the **Maven** sidebar (right side)
+2. Expand: **Chicken Farm Management System** → **Plugins** → **javafx**
+3. Double-click **javafx:run**
+4. Your app should launch! 🎉
+
+**Option B: Run from App.java Directly**
+1. Navigate to `src/main/java/ma/farm/App.java`
+2. Right-click on `App.java`
+3. Select **More Run/Debug** → **Modify Run Configuration**
+4. Click **Modify options**
+5. Select **Add VM options**
+6. A new text field will appear. Paste this:
+   ```
+   --module-path "C:\javafx-sdk-25.0.1\lib" --add-modules javafx.controls,javafx.fxml
+   ```
+   ⚠️ **Note:** Replace the path with your JavaFX SDK location if different
+7. Click **Apply** then **OK**
+8. Right-click `App.java` again and select **Run 'App.main()'**
+
+#### Step 5: Start Working on Your Tasks
+1. Check the **"Chicken Farm MVP Tracking"** project board for your assigned tasks
+2. Create a feature branch:
+   ```bash
+   git checkout -b feature/your-task-name
+   ```
+3. Make your changes and commit:
+   ```bash
+   git add .
+   git commit -m "feat: description of your changes"
+   ```
+4. Push to the repository:
+   ```bash
+   git push origin feature/your-task-name
+   ```
+5. Create a **Pull Request** to the original repo's `dev` branch on GitHub
+
+---
+
+### 🆘 Troubleshooting
+
+**Problem: Maven dependencies not downloading**
+- Solution: Click the reload button again in Maven sidebar
+- Or run in terminal: `mvn clean install`
+
+**Problem: JavaFX modules not found when running App.java**
+- Solution: Make sure you added the VM options correctly in Step 4, Option B
+- Verify the JavaFX path matches your installation
+
+**Problem: Can't switch to dev branch**
+- Solution: Run `git fetch --all` then `git checkout dev`
+
+---
+
 
 ## 📄 License
 
