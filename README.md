@@ -242,24 +242,29 @@ The initial MVP release includes the following pages and functionalities:
 ### MVP Version
 
 #### 📊 Class Diagram - Core Business Entities
-![Core Business Entities](UmlDiagrams/ClassDiagram/MVP/CoreBusinessEntities.png)
+![Core Business Entities](UmlDiagrams/Classe/Vesion_MVP/Classe/ChickenFarmClassDiagram.png)
 
 #### 📈 Sequence Diagram - Daily Data Entry
-![Daily Data Entry](UmlDiagrams/SequenceDiagram/MVP/DailyDataEntry.png)
+![Daily Data Entry](UmlDiagrams/Séquences/Version_MVP/Séquences/ChickenFarmSequenceDiagram.png)
 
 #### 🎯 Use Case Diagram - Internal Operations
-![Internal Operations](UmlDiagrams/UseCase/MVP/ChickenFarmInternalOperations.png)
+![Internal Operations](UmlDiagrams/UseCase/Version_MVP/Use Case/ChickenFarmUseCaseDiagram.png)
 
 ### Final Version
 
 #### 📊 Class Diagram - Complete System
-![Complete System](UmlDiagrams/ClassDiagram/Final/CompleteSystem.png)
+![Complete System](UmlDiagrams/Classe/Diagrams/Images/plantUML/PoultryFarmManagement.png)
 
 #### 📈 Sequence Diagram - Advanced Workflows
-![Advanced Workflows](UmlDiagrams/SequenceDiagram/Final/AdvancedWorkflows.png)
+![Advanced Workflows-1](UmlDiagrams/Séquences/Diagrams/Images/plantUML/BuyFromSupplier.png.png)
+![Advanced Workflows-2](UmlDiagrams/Séquences/Diagrams/Images/plantUML/CloseDayAndDashboard.png)
+![Advanced Workflows-3](UmlDiagrams/Séquences/Diagrams/Images/plantUML/DailyDataEntry.png)
+![Advanced Workflows-4](UmlDiagrams/Séquences/Diagrams/Images/plantUML/SellToCustomer.png)
 
 #### 🎯 Use Case Diagram - Full Operations
-![Full Operations](UmlDiagrams/UseCase/Final/FullOperations.png)
+![Full Operations](UmlDiagrams/UseCase/Diagrams/Images/ChickenFarmAdministration.png)
+![Full Operations](UmlDiagrams/UseCase/Diagrams/Images/ChickenFarmExternalInteractions.png)
+![Full Operations](UmlDiagrams/UseCase/Diagrams/Images/ChickenFarmInternalOperations.png)
 
 ---
 
