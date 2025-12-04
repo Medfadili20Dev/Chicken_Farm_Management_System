@@ -69,15 +69,7 @@ public class UserDAO {
             stmt.setString(1, username);
             ResultSet rs = stmt.executeQuery();
             
-            if (rs.next()) {
-                return new User(
-                    rs.getInt("id"),
-                    rs.getString("username"),
-                    rs.getString("name"),
-                    rs.getString("email"),
-                    rs.getString("password")
-                );
-            }
+
         } catch (SQLException e) {
             System.err.println("Error getting user by username: " + e.getMessage());
             e.printStackTrace();
