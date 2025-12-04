@@ -125,12 +125,12 @@ public class UserDAO {
     
     // Update - Update existing user
     public boolean updateUser(User user) {
-        String sql = "UPDATE users SET username= ?, name = ?, email = ?, password = ? WHERE id = ?";
+        String sql = "UPDATE users SET name = ?, email = ?, password = ? WHERE id = ?";
         try (PreparedStatement stmt = dbConnection.getConnection().prepareStatement(sql)) {
-            stmt.setString(2, user.getName());
-            stmt.setString(3, user.getEmail());
-            stmt.setString(4, user.getPassword());
-            stmt.setInt(5, user.getId());
+            stmt.setString(1, user.getName());
+            stmt.setString(2, user.getEmail());
+            stmt.setString(3, user.getPassword());
+            stmt.setInt(4, user.getId());
             
             return stmt.executeUpdate() > 0;
         } catch (SQLException e) {
