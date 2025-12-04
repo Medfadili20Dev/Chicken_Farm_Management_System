@@ -154,9 +154,11 @@ public class UserDAO {
             stmt.setString(1, user.getUsername());
             stmt.setString(2, user.getName());
             stmt.setString(3, user.getEmail());
+//            stmt.setString(4, user.getPassword());
+//            stmt.setInt(4, user.getId());
             stmt.setString(4, user.getPassword());
-            stmt.setInt(4, user.getId());
-            
+            stmt.setInt(5, user.getId());
+
             return stmt.executeUpdate() > 0;
         } catch (SQLException e) {
             System.err.println("Error updating user: " + e.getMessage());
