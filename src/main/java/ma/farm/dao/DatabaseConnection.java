@@ -12,7 +12,7 @@ public class DatabaseConnection {
     private static final String URL = "jdbc:sqlite:database/farm.db";
     // private static final String USERNAME = "root";
     // private static final String PASSWORD = "password";
-    private static final String DRIVER = "com.sqlite.jdbc.Driver";
+    private static final String DRIVER = "org.sqlite.JDBC";
     
     // Private constructor for singleton
     private DatabaseConnection() {

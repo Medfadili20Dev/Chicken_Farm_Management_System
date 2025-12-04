@@ -17,12 +17,11 @@ public class UserDAO {
     
     // Create - Insert a new user
     public boolean createUser(User user) {
-        String sql = "INSERT INTO users (username, name, email, password) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
         try (PreparedStatement stmt = dbConnection.getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-            stmt.setString(1, user.getUsername());
-            stmt.setString(2, user.getName());
-            stmt.setString(3, user.getEmail());
-            stmt.setString(4, user.getPassword());
+            stmt.setString(1, user.getName());
+            stmt.setString(2, user.getEmail());
+            stmt.setString(3, user.getPassword());
             
             int rowsAffected = stmt.executeUpdate();
             
@@ -50,10 +49,10 @@ public class UserDAO {
             if (rs.next()) {
                 return new User(
                     rs.getInt("id"),
-                    rs.getString("username"),
                     rs.getString("name"),
                     rs.getString("email"),
-                    rs.getString("password")
+                    rs.getString("password"),
+                    rs.getTimestamp("creationDate").toLocalDateTime()
                 );
             }
         } catch (SQLException e) {
@@ -62,28 +61,51 @@ public class UserDAO {
         }
         return null;
     }
-    
-    // Read - Get user by username
-    public User getUserByUsername(String username) {
-        String sql = "SELECT * FROM users WHERE username = ?";
+
+    // Read - Get user by email
+    public User getUserByEmail(String email) {
+        String sql = "SELECT * FROM users WHERE email = ?";
         try (PreparedStatement stmt = dbConnection.getConnection().prepareStatement(sql)) {
-            stmt.setString(1, username);
+            stmt.setString(1, email);
             ResultSet rs = stmt.executeQuery();
             
             if (rs.next()) {
                 return new User(
                     rs.getInt("id"),
-                    rs.getString("username"),
                     rs.getString("name"),
                     rs.getString("email"),
-                    rs.getString("password")
+                    rs.getString("password"),
+                    rs.getTimestamp("creationDate").toLocalDateTime()
                 );
             }
         } catch (SQLException e) {
-            System.err.println("Error getting user by username: " + e.getMessage());
+            System.err.println("Error getting user by email: " + e.getMessage());
             e.printStackTrace();
         }
         return null;
+    }
+
+    // Read - Get all users
+    public List<User> getAllUsers() {
+        List<User> users = new ArrayList<>();
+        String sql = "SELECT * FROM users";
+        try (Statement stmt = dbConnection.getConnection().createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) {
+                User user = new User(
+                    rs.getInt("id"),
+                    rs.getString("name"),
+                    rs.getString("email"),
+                    rs.getString("password"),
+                    rs.getTimestamp("creationDate").toLocalDateTime()
+                );
+                users.add(user);
+            }
+        } catch (SQLException e) {
+            System.err.println("Error getting all users: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return users;
     }
 
     public boolean validate(String email, String password) {
@@ -101,60 +123,13 @@ public class UserDAO {
         return isValid;
     }
     
-    // Read - Get user by email
-    public User getUserByEmail(String email) {
-        String sql = "SELECT * FROM users WHERE email = ?";
-        try (PreparedStatement stmt = dbConnection.getConnection().prepareStatement(sql)) {
-            stmt.setString(1, email);
-            ResultSet rs = stmt.executeQuery();
-            
-            if (rs.next()) {
-                return new User(
-                    rs.getInt("id"),
-                    rs.getString("username"),
-                    rs.getString("name"),
-                    rs.getString("email"),
-                    rs.getString("password")
-                );
-            }
-        } catch (SQLException e) {
-            System.err.println("Error getting user by email: " + e.getMessage());
-            e.printStackTrace();
-        }
-        return null;
-    }
-    
-    // Read - Get all users
-    public List<User> getAllUsers() {
-        List<User> users = new ArrayList<>();
-        String sql = "SELECT * FROM users";
-        try (Statement stmt = dbConnection.getConnection().createStatement();
-             ResultSet rs = stmt.executeQuery(sql)) {
-            while (rs.next()) {
-                User user = new User(
-                    rs.getInt("id"),
-                    rs.getString("username"),
-                    rs.getString("name"),
-                    rs.getString("email"),
-                    rs.getString("password")
-                );
-                users.add(user);
-            }
-        } catch (SQLException e) {
-            System.err.println("Error getting all users: " + e.getMessage());
-            e.printStackTrace();
-        }
-        return users;
-    }
-    
     // Update - Update existing user
     public boolean updateUser(User user) {
-        String sql = "UPDATE users SET username= ?, name = ?, email = ?, password = ? WHERE id = ?";
+        String sql = "UPDATE users SET name = ?, email = ?, password = ? WHERE id = ?";
         try (PreparedStatement stmt = dbConnection.getConnection().prepareStatement(sql)) {
-            stmt.setString(1, user.getUsername());
-            stmt.setString(2, user.getName());
-            stmt.setString(3, user.getEmail());
-            stmt.setString(4, user.getPassword());
+            stmt.setString(1, user.getName());
+            stmt.setString(2, user.getEmail());
+            stmt.setString(3, user.getPassword());
             stmt.setInt(4, user.getId());
             
             return stmt.executeUpdate() > 0;
@@ -173,22 +148,6 @@ public class UserDAO {
             return stmt.executeUpdate() > 0;
         } catch (SQLException e) {
             System.err.println("Error deleting user: " + e.getMessage());
-            e.printStackTrace();
-        }
-        return false;
-    }
-    
-    // Check if email exists
-    public boolean emailExists(String email) {
-        String sql = "SELECT COUNT(*) FROM users WHERE email = ?";
-        try (PreparedStatement stmt = dbConnection.getConnection().prepareStatement(sql)) {
-            stmt.setString(1, email);
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                return rs.getInt(1) > 0;
-            }
-        } catch (SQLException e) {
-            System.err.println("Error checking email existence: " + e.getMessage());
             e.printStackTrace();
         }
         return false;
@@ -217,7 +176,7 @@ public class UserDAO {
     public void login(String email, String password) {
         try {
             User user = authenticate(email, password);
-            System.out.println("Login successful for user: " + user.getUsername());
+            System.out.println("Login successful for user: " + user.getName());
         } catch (SecurityException e) {
             System.out.println(e.getMessage());
         }
