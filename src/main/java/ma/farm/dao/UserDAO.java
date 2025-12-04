@@ -85,21 +85,6 @@ public class UserDAO {
         return null;
     }
 
-    public boolean validate(String email, String password) {
-        boolean isValid = false;
-        String sql = "SELECT * FROM users WHERE email = ? AND password = ?";
-        try (PreparedStatement stmt = dbConnection.getConnection().prepareStatement(sql)) {
-            stmt.setString(1, email);
-            stmt.setString(2, password);
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) isValid = true;
-        } catch (SQLException e) {
-            System.err.println("Error validating user: " + e.getMessage());
-            e.printStackTrace();
-        }
-        return isValid;
-    }
-    
     // Read - Get user by email
     public User getUserByEmail(String email) {
         String sql = "SELECT * FROM users WHERE email = ?";
@@ -122,7 +107,7 @@ public class UserDAO {
         }
         return null;
     }
-    
+
     // Read - Get all users
     public List<User> getAllUsers() {
         List<User> users = new ArrayList<>();
@@ -144,6 +129,21 @@ public class UserDAO {
             e.printStackTrace();
         }
         return users;
+    }
+
+    public boolean validate(String email, String password) {
+        boolean isValid = false;
+        String sql = "SELECT * FROM users WHERE email = ? AND password = ?";
+        try (PreparedStatement stmt = dbConnection.getConnection().prepareStatement(sql)) {
+            stmt.setString(1, email);
+            stmt.setString(2, password);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) isValid = true;
+        } catch (SQLException e) {
+            System.err.println("Error validating user: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return isValid;
     }
     
     // Update - Update existing user
@@ -171,22 +171,6 @@ public class UserDAO {
             return stmt.executeUpdate() > 0;
         } catch (SQLException e) {
             System.err.println("Error deleting user: " + e.getMessage());
-            e.printStackTrace();
-        }
-        return false;
-    }
-    
-    // Check if email exists
-    public boolean emailExists(String email) {
-        String sql = "SELECT COUNT(*) FROM users WHERE email = ?";
-        try (PreparedStatement stmt = dbConnection.getConnection().prepareStatement(sql)) {
-            stmt.setString(1, email);
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                return rs.getInt(1) > 0;
-            }
-        } catch (SQLException e) {
-            System.err.println("Error checking email existence: " + e.getMessage());
             e.printStackTrace();
         }
         return false;
