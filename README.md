@@ -22,11 +22,11 @@ This project was developed as part of a university Java course by the following 
 
 ### 👨‍🏫 Supervising Professors
 
-| Name           | GitHub Profile |
-|----------------|----------------|
-| Professor 1    | [@ProfessorGitHub1](#) |
-| Professor 2    | [@ProfessorGitHub2](#) |
-| Professor 3    | [@ProfessorGitHub3](#) |
+| Name | GitHub Profile |
+|----|----------------|
+| Youssef ES-SAADY | [@ProfessorGitHub1](#) |
+| Abderrahmane SADIQ   | [@ProfessorGitHub2](#) |
+| Professor 3 | [@ProfessorGitHub3](#) |
 
 ---
 
@@ -242,21 +242,32 @@ The initial MVP release includes the following pages and functionalities:
 ### MVP Version
 
 #### 📊 Class Diagram - Core Business Entities
-![Core Business Entities](UmlDiagrams/Classe/Vesion_MVP/Classe/ChickenFarmClassDiagram.png)
+![Core Business Entities](UmlDiagrams/Vesion_MVP/Classe/Images/Diagram_1_Domain_Model.png)
+![Core Business Entities](UmlDiagrams/Vesion_MVP/Classe/Images/Diagram_2_Data_Access_Layer.png)
+![Core Business Entities](UmlDiagrams/Vesion_MVP/Classe/Images/Diagram_3_Controller_Layer.png)
+![Core Business Entities](UmlDiagrams/Vesion_MVP/Classe/Images/Diagram_4_View_Layer.png)
+![Core Business Entities](UmlDiagrams/Vesion_MVP/Classe/Images/Diagram_5_Utility_Classes.png)
+![Core Business Entities](UmlDiagrams/Vesion_MVP/Classe/Images/Diagram_6_Complete_Architecture.png)
 
 #### 📈 Sequence Diagram - Daily Data Entry
-![Daily Data Entry](UmlDiagrams/Séquences/Version_MVP/Séquences/ChickenFarmSequenceDiagram.png)
+![Daily Data Entry](UmlDiagrams/Version_MVP/Séquences/Images/MVP_Sequence_Diagram_1_Login.png)
+![Daily Data Entry](UmlDiagrams/Version_MVP/Séquences/Images/MVP_Sequence_Diagram_2_View_Dashboard.png)
+![Daily Data Entry](UmlDiagrams/Version_MVP/Séquences/Images/MVP_Sequence_Diagram_3_Chicken_Bay.png)
+![Daily Data Entry](UmlDiagrams/Version_MVP/Séquences/Images/MVP_Sequence_Diagram_4_Eggs_Bay.png)
+![Daily Data Entry](UmlDiagrams/Version_MVP/Séquences/Images/MVP_Sequence_Diagram_5_Storage.png)
+![Daily Data Entry](UmlDiagrams/Version_MVP/Séquences/Images/MVP_Sequence_Diagram_6_Tasks.png)
+![Daily Data Entry](UmlDiagrams/Version_MVP/Séquences/Images/MVP_Sequence_Diagram_7_Personnel.png)
 
 #### 🎯 Use Case Diagram - Internal Operations
-![Internal Operations](UmlDiagrams/UseCase/Version_MVP/Use Case/ChickenFarmUseCaseDiagram.png)
+![Internal Operations](UmlDiagrams/Version_MVP/UseCase/Images/MVP_Use_Case_Diagram.png)
 
 ### Final Version
 
 #### 📊 Class Diagram - Complete System
-![Complete System](UmlDiagrams/Classe/Diagrams/Images/plantUML/PoultryFarmManagement.png)
+![Complete System](UmlDiagrams/Classe/Diagrams/Images/plantUML/ChickenBatchManagement.png)
 
 #### 📈 Sequence Diagram - Advanced Workflows
-![Advanced Workflows-1](UmlDiagrams/Séquences/Diagrams/Images/plantUML/BuyFromSupplier.png.png)
+![Advanced Workflows-1](UmlDiagrams/Séquences/Diagrams/Images/plantUML/BuyFromSupplier.png)
 ![Advanced Workflows-2](UmlDiagrams/Séquences/Diagrams/Images/plantUML/CloseDayAndDashboard.png)
 ![Advanced Workflows-3](UmlDiagrams/Séquences/Diagrams/Images/plantUML/DailyDataEntry.png)
 ![Advanced Workflows-4](UmlDiagrams/Séquences/Diagrams/Images/plantUML/SellToCustomer.png)
@@ -267,6 +278,8 @@ The initial MVP release includes the following pages and functionalities:
 ![Full Operations](UmlDiagrams/UseCase/Diagrams/Images/ChickenFarmInternalOperations.png)
 
 ---
+
+
 
 ## 🏗️ Architecture
 
@@ -292,30 +305,87 @@ This project follows the **MVC (Model-View-Controller)** architectural pattern:
 Chicken_Farm_Management_System/
 ├── database/
 │   └── farm.db
+│
 ├── UmlDiagrams/
-│   ├── Classe/
-│   |   ├── Chicken Farm Class Diagram.plantuml
-│   |   ├── Chicken Farm Class Diagram.png
-│   ├── Séquences/
-│   |   ├── Chicken Farm Sequence Diagram 1 _ Buy from Supplier.plantuml
-│   |   ├── Chicken Farm Sequence Diagram 2 _ Sell to Customer.plantuml
-│   |   ├── Chicken Farm Sequence Diagram 3 _ Daily Data Entry.plantuml
-│   |   ├── Chicken Farm Sequence Diagram 4 _ Close Day & Dashboard.plantuml
-│   |   ├── Chicken Farm Sequence Diagram 1 _ Buy from Supplier.png
-│   |   ├── Chicken Farm Sequence Diagram 2 _ Sell to Customer.png
-│   |   ├── Chicken Farm Sequence Diagram 3 _ Daily Data Entry.png
-│   |   ├── Chicken Farm Sequence Diagram 4 _ Close Day & Dashboard.png
-│   ├── Use Case/
-│   |   ├── Chicken Farm Management System _ Diagram 1 - Interactions externes.plantuml
-│   |   ├── Chicken Farm Management System _ Diagram 2 - Opérations internes.plantuml
-│   |   ├── Chicken Farm Management System _ Diagram 3 - Administration et système.plantuml
-│   |   ├── Chicken Farm Management System _ Diagram 1 - Interactions externes.png
-│   |   ├── Chicken Farm Management System _ Diagram 2 - Opérations internes.png
-│   |   ├── Chicken Farm Management System _ Diagram 3 - Administration et système.png
-│   ├── Vesion_MVP/
-│       ├── Classe/
-│       ├── Séquences/
-│       ├── Use Case/
+│   ├── Classe
+│   │   └── Diagrams
+│   │       ├── Images
+│   │       │   ├── ChickenBatchManagement.png
+│   │       │   ├── CoreBusinessEntities.png
+│   │       │   ├── InventoryFinancialManagement.png
+│   │       │   ├── OrderSalesManagement.png
+│   │       │   ├── PoultryFarmManagement.png
+│   │       │   ├── TaskAlertSystemManagement.png
+│   │       │   └── WorkerHierarchy.png
+│   │       └── SourceCode
+│   │           ├── Chicken Farm Class Diagram.plantuml
+│   │           ├── Chicken Farm Sub Class Diagram 1 _ Core Business Entities Diagram.plantuml
+│   │           ├── Chicken Farm Sub Class Diagram 2 _ Human Resources & Worker Management Diagram.plantuml
+│   │           ├── Chicken Farm Sub Class Diagram 3 _ Chicken Lifecycle & Production Diagram.plantuml
+│   │           ├── Chicken Farm Sub Class Diagram 4 _ Commercial Operations Diagram.plantuml
+│   │           ├── Chicken Farm Sub Class Diagram 5 _ Inventory & Financial Management Diagram.plantuml
+│   │           └── Chicken Farm Sub Class Diagram 6 _ System Operations & Compliance Diagram.plantuml
+│   ├── Séquences
+│   │   └── Diagrams
+│   │       ├── Images
+│   │       │   ├── BuyFromSupplier.png
+│   │       │   ├── CloseDayAndDashboard.png
+│   │       │   ├── DailyDataEntry.png
+│   │       │   └── SellToCustomer.png
+│   │       └── SourceCode
+│   │           ├── Chicken Farm Sequence Diagram 1 _ Buy from Supplier.plantuml
+│   │           ├── Chicken Farm Sequence Diagram 2 _ Sell to Customer.plantuml
+│   │           ├── Chicken Farm Sequence Diagram 3 _ Daily Data Entry.plantuml
+│   │           └── Chicken Farm Sequence Diagram 4 _ Close Day & Dashboard.plantuml
+│   ├── UseCase
+│   │   └── Diagrams
+│   │       ├── Images
+│   │       │   ├── ChickenFarmAdministration.png
+│   │       │   ├── ChickenFarmExternalInteractions.png
+│   │       │   └── ChickenFarmInternalOperations.png
+│   │       └── SourceCode
+│   │           ├── Chicken Farm Management System _ Diagram 1 - Interactions externes.plantuml
+│   │           ├── Chicken Farm Management System _ Diagram 2 - Opérations internes.plantuml
+│   │           └── Chicken Farm Management System _ Diagram 3 - Administration et système.plantuml
+│   └── Version_MVP
+│       ├── Classe
+│       │   ├── Images
+│       │   │   ├── Diagram_1_Domain_Model.png
+│       │   │   ├── Diagram_2_Data_Access_Layer.png
+│       │   │   ├── Diagram_3_Controller_Layer.png
+│       │   │   ├── Diagram_4_View_Layer.png
+│       │   │   ├── Diagram_5_Utility_Classes.png
+│       │   │   └── Diagram_6_Complete_Architecture.png
+│       │   └── SourceCode
+│       │       ├── Chicken Farm Class Diagram 1.plantuml
+│       │       ├── Chicken Farm Class Diagram 2.plantuml
+│       │       ├── Chicken Farm Class Diagram 3.plantuml
+│       │       ├── Chicken Farm Class Diagram 4.plantuml
+│       │       ├── Chicken Farm Class Diagram 5.plantuml
+│       │       └── Chicken Farm Class Diagram 6.plantuml
+│       ├── Séquences
+│       │   ├── Images
+│       │   │   ├── MVP_Sequence_Diagram_1_Login.png
+│       │   │   ├── MVP_Sequence_Diagram_2_View_Dashboard.png
+│       │   │   ├── MVP_Sequence_Diagram_3_Chicken_Bay.png
+│       │   │   ├── MVP_Sequence_Diagram_4_Eggs_Bay.png
+│       │   │   ├── MVP_Sequence_Diagram_5_Storage.png
+│       │   │   ├── MVP_Sequence_Diagram_6_Tasks.png
+│       │   │   └── MVP_Sequence_Diagram_7_Personnel.png
+│       │   └── SourceCode
+│       │       ├── Chicken Farm Sequence Diagram 1.plantuml
+│       │       ├── Chicken Farm Sequence Diagram 2.plantuml
+│       │       ├── Chicken Farm Sequence Diagram 3.plantuml
+│       │       ├── Chicken Farm Sequence Diagram 4.plantuml
+│       │       ├── Chicken Farm Sequence Diagram 5.plantuml
+│       │       └── Chicken Farm Sequence Diagram 6.plantuml
+│       │       └── Chicken Farm Sequence Diagram 7.plantuml
+│       └── UseCase
+│           ├── Images
+│           │   └── MVP_Use_Case_Diagram.png
+│           └── SourceCode
+│               └── Chicken Farm Use Case Diagram.plantuml
+│
 │
 ├── src/
 │   ├── main/
