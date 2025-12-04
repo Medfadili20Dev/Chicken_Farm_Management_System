@@ -1,58 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Text?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx/25"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="ma.farm.controller.DashboardController"
-            prefHeight="700.0"
-            prefWidth="1000.0"
-            styleClass="dashboard-container"
-            stylesheets="@../css/style.css">
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="CONTROLLER_NAME"
+            prefHeight="400.0" prefWidth="600.0">
 
-    <center>
-        <VBox alignment="CENTER" spacing="30" styleClass="dashboard-content">
-            <padding>
-                <Insets top="50" right="50" bottom="50" left="50"/>
-            </padding>
-
-            <!-- Logo -->
-            <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-                <image>
-                    <Image url="@../images/logo.png" />
-                </image>
-            </ImageView>
-
-            <!-- Welcome Title -->
-            <Text styleClass="dashboard-title" text="Bienvenue sur le Tableau de Bord" />
-
-            <!-- Success Message -->
-            <Label styleClass="dashboard-subtitle" text="✅ Vous êtes connecté avec succès!" />
-
-            <!-- Info Message -->
-            <VBox alignment="CENTER" spacing="10" styleClass="info-box">
-                <padding>
-                    <Insets top="30" right="40" bottom="30" left="40"/>
-                </padding>
-
-                <Label styleClass="info-title" text="🚧 Tableau de bord en cours de développement" />
-                <Label styleClass="info-text" text="Cette page sera bientôt disponible avec:" />
-                <Label styleClass="info-item" text="• Statistiques des poulets" />
-                <Label styleClass="info-item" text="• Production d'œufs" />
-                <Label styleClass="info-item" text="• Alertes importantes" />
-                <Label styleClass="info-item" text="• Graphiques de tendances" />
-            </VBox>
-
-            <!-- Footer Info -->
-            <Label styleClass="dashboard-footer" text="Chicken Farm Management System v1.0 MVP" />
-
-        </VBox>
-    </center>
-
-</BorderPane>
+</AnchorPane>

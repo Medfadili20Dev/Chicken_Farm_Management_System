@@ -55,8 +55,7 @@
                                 <!-- Password Field -->
                                 <VBox styleClass="input-group">
                                     <Label styleClass="input-label" text="Mot de passe" />
-<!--                                    <PasswordField fx:id="passwordFeild" promptText="Entrez votre mot de passe" styleClass="password-field" />-->
-                                    <PasswordField fx:id="passwordField" promptText="Entrez votre mot de passe" styleClass="password-field" />
+                                    <PasswordField fx:id="passwordFeild" promptText="Entrez votre mot de passe" styleClass="password-field" />
                                 </VBox>
 
                                 <!-- Login Button -->

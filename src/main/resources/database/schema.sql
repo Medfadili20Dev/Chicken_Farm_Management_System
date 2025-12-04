@@ -5,7 +5,3 @@ CREATE TABLE IF NOT EXISTS users (
     email VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL
 );
-
--- Insert default admin user if not exists
-INSERT OR IGNORE INTO users (username, name, email, password)
-VALUES ('admin', 'Administrator', 'admin@farm.ma', 'admin123');
