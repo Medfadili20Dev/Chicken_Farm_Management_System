@@ -17,12 +17,11 @@ public class UserDAO {
     
     // Create - Insert a new user
     public boolean createUser(User user) {
-        String sql = "INSERT INTO users (username, name, email, password) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
         try (PreparedStatement stmt = dbConnection.getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-            stmt.setString(1, user.getUsername());
-            stmt.setString(2, user.getName());
-            stmt.setString(3, user.getEmail());
-            stmt.setString(4, user.getPassword());
+            stmt.setString(1, user.getName());
+            stmt.setString(2, user.getEmail());
+            stmt.setString(3, user.getPassword());
             
             int rowsAffected = stmt.executeUpdate();
             
@@ -50,10 +49,10 @@ public class UserDAO {
             if (rs.next()) {
                 return new User(
                     rs.getInt("id"),
-                    rs.getString("username"),
                     rs.getString("name"),
                     rs.getString("email"),
-                    rs.getString("password")
+                    rs.getString("password"),
+                    rs.getTimestamp("creationDate").toLocalDateTime()
                 );
             }
         } catch (SQLException e) {
@@ -111,10 +110,10 @@ public class UserDAO {
             if (rs.next()) {
                 return new User(
                     rs.getInt("id"),
-                    rs.getString("username"),
                     rs.getString("name"),
                     rs.getString("email"),
-                    rs.getString("password")
+                    rs.getString("password"),
+                    rs.getTimestamp("creationDate").toLocalDateTime()
                 );
             }
         } catch (SQLException e) {
@@ -133,10 +132,10 @@ public class UserDAO {
             while (rs.next()) {
                 User user = new User(
                     rs.getInt("id"),
-                    rs.getString("username"),
                     rs.getString("name"),
                     rs.getString("email"),
-                    rs.getString("password")
+                    rs.getString("password"),
+                    rs.getTimestamp("creationDate").toLocalDateTime()
                 );
                 users.add(user);
             }
@@ -151,11 +150,10 @@ public class UserDAO {
     public boolean updateUser(User user) {
         String sql = "UPDATE users SET username= ?, name = ?, email = ?, password = ? WHERE id = ?";
         try (PreparedStatement stmt = dbConnection.getConnection().prepareStatement(sql)) {
-            stmt.setString(1, user.getUsername());
             stmt.setString(2, user.getName());
             stmt.setString(3, user.getEmail());
             stmt.setString(4, user.getPassword());
-            stmt.setInt(4, user.getId());
+            stmt.setInt(5, user.getId());
             
             return stmt.executeUpdate() > 0;
         } catch (SQLException e) {
@@ -217,7 +215,7 @@ public class UserDAO {
     public void login(String email, String password) {
         try {
             User user = authenticate(email, password);
-            System.out.println("Login successful for user: " + user.getUsername());
+            System.out.println("Login successful for user: " + user.getName());
         } catch (SecurityException e) {
             System.out.println(e.getMessage());
         }
