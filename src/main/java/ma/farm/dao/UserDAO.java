@@ -61,29 +61,6 @@ public class UserDAO {
         }
         return null;
     }
-    
-    // Read - Get user by username
-    public User getUserByUsername(String username) {
-        String sql = "SELECT * FROM users WHERE username = ?";
-        try (PreparedStatement stmt = dbConnection.getConnection().prepareStatement(sql)) {
-            stmt.setString(1, username);
-            ResultSet rs = stmt.executeQuery();
-            
-            if (rs.next()) {
-                return new User(
-                    rs.getInt("id"),
-                    rs.getString("username"),
-                    rs.getString("name"),
-                    rs.getString("email"),
-                    rs.getString("password")
-                );
-            }
-        } catch (SQLException e) {
-            System.err.println("Error getting user by username: " + e.getMessage());
-            e.printStackTrace();
-        }
-        return null;
-    }
 
     // Read - Get user by email
     public User getUserByEmail(String email) {
