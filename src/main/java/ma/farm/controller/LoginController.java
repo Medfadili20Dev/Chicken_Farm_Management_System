@@ -23,7 +23,7 @@ public class LoginController {
     private TextField emailField;
 
     @FXML
-    private PasswordField passwordField;  // Note: keeping the typo from FXML
+    private PasswordField passwordField;
 
     @FXML
     private Button loginButton;
@@ -47,9 +47,11 @@ public class LoginController {
 
         // Add enter key listener to password field
         passwordField.setOnAction(this::handleLogin);
+        passwordField.setText("admin123");
 
         // Add enter key listener to email field
         emailField.setOnAction(event -> passwordField.requestFocus());
+        emailField.setText("admin@farm.ma");
     }
 
     /**
@@ -143,12 +145,32 @@ public class LoginController {
     }
 
     /**
-     * Navigates to dashboard after successful login
+     * Navigates to MainWindow after successful login
      */
     private void navigateToDashboard() {
-        System.out.println("-------------------------------------------------");
-        System.out.println("Login successful! Dashboard not implemented yet.");
-        System.out.println("-------------------------------------------------");
+        try {
+            // Load MainWindow FXML
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/MainWindow.fxml"));
+            Parent mainWindowRoot = loader.load();
+
+            // Get current stage (login window)
+            Stage stage = (Stage) loginButton.getScene().getWindow();
+
+            // Create new scene with MainWindow
+            Scene mainScene = new Scene(mainWindowRoot);
+
+            // Set the new scene
+            stage.setScene(mainScene);
+            stage.setTitle("Chicken Farm Management - Dashboard");
+            stage.setMaximized(true); // Open maximized for better view
+
+            System.out.println("Successfully navigated to MainWindow!");
+
+        } catch (IOException e) {
+            System.err.println("Error loading MainWindow: " + e.getMessage());
+            e.printStackTrace();
+            showError("Erreur lors de l'ouverture du tableau de bord.");
+        }
     }
 
     /**
