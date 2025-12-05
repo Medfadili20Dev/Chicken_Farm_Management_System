@@ -26,7 +26,7 @@ import java.util.List;
  * @version 1.0
  */
 public class PersonnelDAO {
-    private DatabaseConnection dbConnection;
+    private final DatabaseConnection dbConnection;
 
     /**
      * Constructor - Initializes the DAO with a database connection instance
