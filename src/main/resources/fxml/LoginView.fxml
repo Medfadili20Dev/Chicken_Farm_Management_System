@@ -59,7 +59,7 @@
                                 </VBox>
 
                                 <!-- Login Button -->
-                                <Button fx:id="loginButton" minWidth="150.0" prefWidth="150.0" styleClass="login-button" text="Se Connecter" />
+                                <Button fx:id="loginButton" minWidth="150.0" prefWidth="150.0" styleClass="login-button" text="Se Connecter" onAction="#handleLogin" />
                             </children>
                         </VBox>
 

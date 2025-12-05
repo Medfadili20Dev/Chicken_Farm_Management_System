@@ -146,9 +146,9 @@ public class LoginController {
      * Navigates to dashboard after successful login
      */
     private void navigateToDashboard() {
+        System.out.println("-------------------------------------------------");
         System.out.println("Login successful! Dashboard not implemented yet.");
-        showError("Connexion réussie! (Dashboard à venir)");
-        errorLabel.setStyle("-fx-text-fill: green;");
+        System.out.println("-------------------------------------------------");
     }
 
     /**
