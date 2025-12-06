@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
+<AnchorPane xmlns="http://javafx.com/javafx/25"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="CONTROLLER_NAME"
-            prefHeight="400.0" prefWidth="600.0">
+            fx:controller="ma.farm.controller.ChickenBayController"
+            prefHeight="700.0" prefWidth="950.0"
+            style="-fx-background-color: #ecf0f1;">
+
+    <!-- Centered Message -->
+    <Label text="This page is for Chicken Bay, wait for updates!!!"
+           style="-fx-text-fill: #2c3e50; -fx-font-size: 24px; -fx-font-weight: bold;"
+           layoutX="200.0" layoutY="320.0">
+        <font>
+            <Font size="24.0" />
+        </font>
+    </Label>
 
 </AnchorPane>
