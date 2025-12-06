@@ -4,8 +4,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -13,31 +13,24 @@ import java.io.IOException;
 public class MainWindowController {
 
     @FXML
+    private BorderPane mainContainer;
+
+    @FXML
     private AnchorPane contentArea;
 
     @FXML
-    private Button dashboardBtn;
-
-    @FXML
-    private Button chickenBayBtn;
-
-    @FXML
-    private Button eggsBayBtn;
-
-    @FXML
-    private Button storageBtn;
-
-    @FXML
-    private Button tasksBtn;
-
-    @FXML
-    private Button personnelBtn;
+    private SidebarController sidebarController; // Injected automatically by fx:include
 
     /**
      * Initialize method - called automatically after FXML is loaded
      */
     @FXML
     public void initialize() {
+        // Set main controller reference in sidebar
+        if (sidebarController != null) {
+            sidebarController.setMainController(this);
+        }
+
         // Load Dashboard by default
         showDashboard();
     }
@@ -45,69 +38,74 @@ public class MainWindowController {
     /**
      * Load Dashboard page
      */
-    @FXML
-    private void showDashboard() {
+    public void showDashboard() {
         loadPage("/fxml/DashboardView.fxml");
-        setActiveButton(dashboardBtn);
+        if (sidebarController != null) {
+            sidebarController.setActiveButton("dashboard");
+        }
     }
 
     /**
      * Load Chicken Bay page
      */
-    @FXML
-    private void showChickenBay() {
+    public void showChickenBay() {
         loadPage("/fxml/ChickenBayView.fxml");
-        setActiveButton(chickenBayBtn);
+        if (sidebarController != null) {
+            sidebarController.setActiveButton("chickenBay");
+        }
     }
 
     /**
      * Load Eggs Bay page
      */
-    @FXML
-    private void showEggsBay() {
+    public void showEggsBay() {
         loadPage("/fxml/EggsBayView.fxml");
-        setActiveButton(eggsBayBtn);
+        if (sidebarController != null) {
+            sidebarController.setActiveButton("eggsBay");
+        }
     }
 
     /**
      * Load Storage page
      */
-    @FXML
-    private void showStorage() {
+    public void showStorage() {
         loadPage("/fxml/StorageView.fxml");
-        setActiveButton(storageBtn);
+        if (sidebarController != null) {
+            sidebarController.setActiveButton("storage");
+        }
     }
 
     /**
      * Load Tasks page
      */
-    @FXML
-    private void showTasks() {
+    public void showTasks() {
         loadPage("/fxml/TasksView.fxml");
-        setActiveButton(tasksBtn);
+        if (sidebarController != null) {
+            sidebarController.setActiveButton("tasks");
+        }
     }
 
     /**
      * Load Personnel page
      */
-    @FXML
-    private void showPersonnel() {
+    public void showPersonnel() {
         loadPage("/fxml/PersonnelView.fxml");
-        setActiveButton(personnelBtn);
+        if (sidebarController != null) {
+            sidebarController.setActiveButton("personnel");
+        }
     }
 
     /**
      * Handle logout - return to login page
      */
-    @FXML
-    private void handleLogout() {
+    public void handleLogout() {
         try {
             // Load login page
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/LoginView.fxml"));
             Parent loginRoot = loader.load();
 
             // Get current stage
-            Stage stage = (Stage) contentArea.getScene().getWindow();
+            Stage stage = (Stage) mainContainer.getScene().getWindow();
 
             // Set login scene
             Scene loginScene = new Scene(loginRoot);
@@ -150,22 +148,5 @@ public class MainWindowController {
             System.err.println("Error loading page: " + fxmlPath);
             e.printStackTrace();
         }
-    }
-
-    /**
-     * Set the active button style (highlight the current page)
-     * @param activeButton The button to highlight
-     */
-    private void setActiveButton(Button activeButton) {
-        // Reset all buttons to default style
-        dashboardBtn.setStyle("-fx-background-color: #34495e; -fx-text-fill: white; -fx-font-size: 14px; -fx-cursor: hand;");
-        chickenBayBtn.setStyle("-fx-background-color: #34495e; -fx-text-fill: white; -fx-font-size: 14px; -fx-cursor: hand;");
-        eggsBayBtn.setStyle("-fx-background-color: #34495e; -fx-text-fill: white; -fx-font-size: 14px; -fx-cursor: hand;");
-        storageBtn.setStyle("-fx-background-color: #34495e; -fx-text-fill: white; -fx-font-size: 14px; -fx-cursor: hand;");
-        tasksBtn.setStyle("-fx-background-color: #34495e; -fx-text-fill: white; -fx-font-size: 14px; -fx-cursor: hand;");
-        personnelBtn.setStyle("-fx-background-color: #34495e; -fx-text-fill: white; -fx-font-size: 14px; -fx-cursor: hand;");
-
-        // Highlight the active button
-        activeButton.setStyle("-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-size: 14px; -fx-cursor: hand;");
     }
 }
