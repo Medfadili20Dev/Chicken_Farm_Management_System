@@ -302,294 +302,194 @@ This project follows the **MVC (Model-View-Controller)** architectural pattern:
 ## 📁 Folder Structure (MVP Version)
 
 ```txt
-C:.
-├───database
-│       farm.db
-│       
-├───src
-│   ├───main
-│   │   ├───java
-│   │   │   └───ma
-│   │   │       └───farm
-│   │   │           │   App.java
-│   │   │           │   
-│   │   │           ├───controller
-│   │   │           │       ChickenBayController.java
-│   │   │           │       DashboardController.java
-│   │   │           │       EggsBayController.java
-│   │   │           │       LoginController.java
-│   │   │           │       MainWindowController.java
-│   │   │           │       PersonnelController.java
-│   │   │           │       SidebarController.java
-│   │   │           │       StorageController.java
-│   │   │           │       TasksController.java
-│   │   │           │       
-│   │   │           ├───dao
-│   │   │           │       ChickenDAO.java
-│   │   │           │       DatabaseConnection.java
-│   │   │           │       EggProductionDAO.java
-│   │   │           │       EquipmentDAO.java
-│   │   │           │       FeedDAO.java
-│   │   │           │       HouseDAO.java
-│   │   │           │       MedicationDAO.java
-│   │   │           │       MortalityDAO.java
-│   │   │           │       PersonnelDAO.java
-│   │   │           │       TaskDAO.java
-│   │   │           │       UserDAO.java
-│   │   │           │       
-│   │   │           ├───model
-│   │   │           │       Chicken.java
-│   │   │           │       EggProduction.java
-│   │   │           │       Equipment.java
-│   │   │           │       Feed.java
-│   │   │           │       House.java
-│   │   │           │       Medication.java
-│   │   │           │       Mortality.java
-│   │   │           │       Personnel.java
-│   │   │           │       Task.java
-│   │   │           │       User.java
-│   │   │           │       
-│   │   │           └───util
-│   │   │                   DateUtil.java
-│   │   │                   NavigationUtil.java
-│   │   │                   ValidationUtil.java
-│   │   │                   
-│   │   └───resources
-│   │       ├───css
-│   │       │       style.css
-│   │       │       
-│   │       ├───database
-│   │       │       schema.sql
-│   │       │       
-│   │       ├───fxml
-│   │       │       ChickenBayView.fxml
-│   │       │       DashboardView.fxml
-│   │       │       EggsBayView.fxml
-│   │       │       LoginView.fxml
-│   │       │       MainWindow.fxml
-│   │       │       PersonnelView.fxml
-│   │       │       Sidebar.fxml
-│   │       │       StorageView.fxml
-│   │       │       TasksView.fxml
-│   │       │       
-│   │       └───images
-│   │           │   logo.png
-│   │           │   
-│   │           └───icons
-│   │                   chicken.png
-│   │                   egg.png
-│   │                   personnel.png
-│   │                   storage.png
-│   │                   task.png
-│   │                   
-│   └───test
-│       └───java
-│           └───ma
-│               └───farm
-│                   └───dao
-│                           ChickenDAOTest.java
-│                           DatabaseConnectionTest.java
-│                           EggProductionDAOTest.java
-│                           PersonnelDAOTest.java
-│                           TaskDAOTest.java
-│                           UserDAOTest.java
-│                           
-├───target
-│   ├───classes
-│   │   ├───css
-│   │   │       style.css
-│   │   │       
-│   │   ├───database
-│   │   │       schema.sql
-│   │   │       
-│   │   ├───fxml
-│   │   │       ChickenBayView.fxml
-│   │   │       DashboardView.fxml
-│   │   │       EggsBayView.fxml
-│   │   │       LoginView.fxml
-│   │   │       MainWindow.fxml
-│   │   │       PersonnelView.fxml
-│   │   │       Sidebar.fxml
-│   │   │       StorageView.fxml
-│   │   │       TasksView.fxml
-│   │   │       
-│   │   ├───images
-│   │   │   │   logo.png
-│   │   │   │   
-│   │   │   └───icons
-│   │   │           chicken.png
-│   │   │           egg.png
-│   │   │           personnel.png
-│   │   │           storage.png
-│   │   │           task.png
-│   │   │           
-│   │   └───ma
-│   │       └───farm
-│   │           │   App.class
-│   │           │   
-│   │           ├───controller
-│   │           │       ChickenBayController.class
-│   │           │       DashboardController.class
-│   │           │       EggsBayController.class
-│   │           │       LoginController.class
-│   │           │       MainWindowController.class
-│   │           │       PersonnelController.class
-│   │           │       SidebarController.class
-│   │           │       StorageController.class
-│   │           │       TasksController.class
-│   │           │       
-│   │           ├───dao
-│   │           │       ChickenDAO.class
-│   │           │       DatabaseConnection.class
-│   │           │       EggProductionDAO.class
-│   │           │       EquipmentDAO.class
-│   │           │       FeedDAO.class
-│   │           │       HouseDAO.class
-│   │           │       MedicationDAO.class
-│   │           │       MortalityDAO.class
-│   │           │       PersonnelDAO.class
-│   │           │       TaskDAO.class
-│   │           │       UserDAO.class
-│   │           │       
-│   │           ├───model
-│   │           │       Chicken.class
-│   │           │       EggProduction.class
-│   │           │       Equipment.class
-│   │           │       Feed.class
-│   │           │       House.class
-│   │           │       Medication.class
-│   │           │       Mortality.class
-│   │           │       Personnel.class
-│   │           │       Task.class
-│   │           │       User.class
-│   │           │       
-│   │           ├───util
-│   │           │       DateUtil.class
-│   │           │       NavigationUtil.class
-│   │           │       ValidationUtil.class
-│   │           │       
-│   │           └───view
-│   ├───generated-sources
-│   │   └───annotations
-│   ├───generated-test-sources
-│   │   └───test-annotations
-│   ├───maven-status
-│   │   └───maven-compiler-plugin
-│   │       └───compile
-│   │           └───default-compile
-│   │                   createdFiles.lst
-│   │                   inputFiles.lst
-│   │                   
-│   └───test-classes
-│       └───ma
-│           └───farm
-│               └───dao
-│                       ChickenDAOTest.class
-│                       DatabaseConnectionTest.class
-│                       EggProductionDAOTest.class
-│                       PersonnelDAOTest.class
-│                       TaskDAOTest.class
-│                       UserDAOTest.class
-│                       
-└───UmlDiagrams
-    ├───Classe
-    │   │   Chicken Farm Class Diagram.plantuml
-    │   │   
-    │   └───Diagrams
-    │       ├───Images
-    │       │       ChickenBatchManagement.png
-    │       │       CoreBusinessEntities.png
-    │       │       InventoryFinancialManagement.png
-    │       │       OrderSalesManagement.png
-    │       │       PoultryFarmManagement.png
-    │       │       TaskAlertSystemManagement.png
-    │       │       WorkerHierarchy.png
-    │       │       
-    │       └───SourceCode
-    │               Chicken Farm Class Diagram.plantuml
-    │               Chicken Farm Sub Class Diagram 1 _ Core Business Entities Diagram.plantuml
-    │               Chicken Farm Sub Class Diagram 2 _ Human Resources & Worker Management Diagram.plantuml
-    │               Chicken Farm Sub Class Diagram 3 _ Chicken Lifecycle & Production Diagram.plantuml
-    │               Chicken Farm Sub Class Diagram 4 _ Commercial Operations Diagram.plantuml
-    │               Chicken Farm Sub Class Diagram 5 _ Inventory & Financial Management Diagram.plantuml
-    │               Chicken Farm Sub Class Diagram 6 _ System Operations & Compliance Diagram.plantuml
-    │               
-    ├───Séquences
-    │   │   Chicken Farm Sequence Diagram 1 _ Buy from Supplier.plantuml
-    │   │   Chicken Farm Sequence Diagram 2 _ Sell to Customer.plantuml
-    │   │   Chicken Farm Sequence Diagram 3 _ Daily Data Entry.plantuml
-    │   │   Chicken Farm Sequence Diagram 4 _ Close Day & Dashboard.plantuml
-    │   │   
-    │   └───Diagrams
-    │       ├───Images
-    │       │       BuyFromSupplier.png
-    │       │       CloseDayAndDashboard.png
-    │       │       DailyDataEntry.png
-    │       │       SellToCustomer.png
-    │       │       
-    │       └───SourceCode
-    │               Chicken Farm Sequence Diagram 1 _ Buy from Supplier.plantuml
-    │               Chicken Farm Sequence Diagram 2 _ Sell to Customer.plantuml
-    │               Chicken Farm Sequence Diagram 3 _ Daily Data Entry.plantuml
-    │               Chicken Farm Sequence Diagram 4 _ Close Day & Dashboard.plantuml
-    │               
-    ├───UseCase
-    │   └───Diagrams
-    │       ├───Images
-    │       │       ChickenFarmAdministration.png
-    │       │       ChickenFarmExternalInteractions.png
-    │       │       ChickenFarmInternalOperations.png
-    │       │       
-    │       └───SourceCode
-    │               Chicken Farm Management System _ Diagram 1 - Interactions externes.plantuml
-    │               Chicken Farm Management System _ Diagram 2 - Opérations internes.plantuml
-    │               Chicken Farm Management System _ Diagram 3 - Administration et système.plantuml
-    │               
-    └───Version_MVP
-        ├───Classe
-        │   ├───Images
-        │   │       Diagram_1_Domain_Model.png
-        │   │       Diagram_2_Data_Access_Layer.png
-        │   │       Diagram_3_Controller_Layer.png
-        │   │       Diagram_4_View_Layer.png
-        │   │       Diagram_5_Utility_Classes.png
-        │   │       Diagram_6_Complete_Architecture.png
-        │   │       
-        │   └───SourceCode
-        │           Chicken Farm Class Diagram 1.plantuml
-        │           Chicken Farm Class Diagram 2.plantuml
-        │           Chicken Farm Class Diagram 3.plantuml
-        │           Chicken Farm Class Diagram 4.plantuml
-        │           Chicken Farm Class Diagram 5.plantuml
-        │           Chicken Farm Class Diagram 6.plantuml
-        │           
-        ├───Séquences
-        │   ├───Images
-        │   │       MVP_Sequence_Diagram_1_Login.png
-        │   │       MVP_Sequence_Diagram_2_View_Dashboard.png
-        │   │       MVP_Sequence_Diagram_3_Chicken_Bay.png
-        │   │       MVP_Sequence_Diagram_4_Eggs_Bay.png
-        │   │       MVP_Sequence_Diagram_5_Storage.png
-        │   │       MVP_Sequence_Diagram_6_Tasks.png
-        │   │       MVP_Sequence_Diagram_7_Personnel.png
-        │   │       
-        │   └───SourceCode
-        │           Chicken Farm Sequence Diagram 1.plantuml
-        │           Chicken Farm Sequence Diagram 2.plantuml
-        │           Chicken Farm Sequence Diagram 3.plantuml
-        │           Chicken Farm Sequence Diagram 4.plantuml
-        │           Chicken Farm Sequence Diagram 5.plantuml
-        │           Chicken Farm Sequence Diagram 6.plantuml
-        │           Chicken Farm Sequence Diagram 7.plantuml
-        │           
-        └───UseCase
-            ├───Images
-            │       MVP_Use_Case_Diagram.png
-            │       
-            └───SourceCode
-                    Chicken Farm Use Case Diagram.plantuml
-
-
+Chicken_Farm_Management_System/
+│
+├── database/
+│   └── farm.db
+│
+├── UmlDiagrams/
+│   ├── Classe/
+│   │   └── Diagrams/
+│   │       ├── Images/
+│   │       │   ├── ChickenBatchManagement.png
+│   │       │   ├── CoreBusinessEntities.png
+│   │       │   ├── InventoryFinancialManagement.png
+│   │       │   ├── OrderSalesManagement.png
+│   │       │   ├── PoultryFarmManagement.png
+│   │       │   ├── TaskAlertSystemManagement.png
+│   │       │   └── WorkerHierarchy.png
+│   │       └── SourceCode/
+│   │           ├── Chicken Farm Class Diagram.plantuml
+│   │           ├── Chicken Farm Sub Class Diagram 1 _ Core Business Entities Diagram.plantuml
+│   │           ├── Chicken Farm Sub Class Diagram 2 _ Human Resources & Worker Management Diagram.plantuml
+│   │           ├── Chicken Farm Sub Class Diagram 3 _ Chicken Lifecycle & Production Diagram.plantuml
+│   │           ├── Chicken Farm Sub Class Diagram 4 _ Commercial Operations Diagram.plantuml
+│   │           ├── Chicken Farm Sub Class Diagram 5 _ Inventory & Financial Management Diagram.plantuml
+│   │           └── Chicken Farm Sub Class Diagram 6 _ System Operations & Compliance Diagram.plantuml
+│   │
+│   ├── Séquences/
+│   │   └── Diagrams/
+│   │       ├── Images/
+│   │       │   ├── BuyFromSupplier.png
+│   │       │   ├── CloseDayAndDashboard.png
+│   │       │   ├── DailyDataEntry.png
+│   │       │   └── SellToCustomer.png
+│   │       └── SourceCode/
+│   │           ├── Chicken Farm Sequence Diagram 1 _ Buy from Supplier.plantuml
+│   │           ├── Chicken Farm Sequence Diagram 2 _ Sell to Customer.plantuml
+│   │           ├── Chicken Farm Sequence Diagram 3 _ Daily Data Entry.plantuml
+│   │           └── Chicken Farm Sequence Diagram 4 _ Close Day & Dashboard.plantuml
+│   │
+│   ├── UseCase/
+│   │   └── Diagrams/
+│   │       ├── Images/
+│   │       │   ├── ChickenFarmAdministration.png
+│   │       │   ├── ChickenFarmExternalInteractions.png
+│   │       │   └── ChickenFarmInternalOperations.png
+│   │       └── SourceCode/
+│   │           ├── Chicken Farm Management System _ Diagram 1 - Interactions externes.plantuml
+│   │           ├── Chicken Farm Management System _ Diagram 2 - Opérations internes.plantuml
+│   │           └── Chicken Farm Management System _ Diagram 3 - Administration et système.plantuml
+│   │
+│   └── Version_MVP/
+│       ├── Classe/
+│       │   ├── Images/
+│       │   │   ├── Diagram_1_Domain_Model.png
+│       │   │   ├── Diagram_2_Data_Access_Layer.png
+│       │   │   ├── Diagram_3_Controller_Layer.png
+│       │   │   ├── Diagram_4_View_Layer.png
+│       │   │   ├── Diagram_5_Utility_Classes.png
+│       │   │   └── Diagram_6_Complete_Architecture.png
+│       │   └── SourceCode/
+│       │       ├── Chicken Farm Class Diagram 1.plantuml
+│       │       ├── Chicken Farm Class Diagram 2.plantuml
+│       │       ├── Chicken Farm Class Diagram 3.plantuml
+│       │       ├── Chicken Farm Class Diagram 4.plantuml
+│       │       ├── Chicken Farm Class Diagram 5.plantuml
+│       │       └── Chicken Farm Class Diagram 6.plantuml
+│       │
+│       ├── Séquences/
+│       │   ├── Images/
+│       │   │   ├── MVP_Sequence_Diagram_1_Login.png
+│       │   │   ├── MVP_Sequence_Diagram_2_View_Dashboard.png
+│       │   │   ├── MVP_Sequence_Diagram_3_Chicken_Bay.png
+│       │   │   ├── MVP_Sequence_Diagram_4_Eggs_Bay.png
+│       │   │   ├── MVP_Sequence_Diagram_5_Storage.png
+│       │   │   ├── MVP_Sequence_Diagram_6_Tasks.png
+│       │   │   └── MVP_Sequence_Diagram_7_Personnel.png
+│       │   └── SourceCode/
+│       │       ├── Chicken Farm Sequence Diagram 1.plantuml
+│       │       ├── Chicken Farm Sequence Diagram 2.plantuml
+│       │       ├── Chicken Farm Sequence Diagram 3.plantuml
+│       │       ├── Chicken Farm Sequence Diagram 4.plantuml
+│       │       ├── Chicken Farm Sequence Diagram 5.plantuml
+│       │       ├── Chicken Farm Sequence Diagram 6.plantuml
+│       │       └── Chicken Farm Sequence Diagram 7.plantuml
+│       │
+│       └── UseCase/
+│           ├── Images/
+│           │   └── MVP_Use_Case_Diagram.png
+│           └── SourceCode/
+│               └── Chicken Farm Use Case Diagram.plantuml
+│
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── ma/
+│   │   │       └── farm/
+│   │   │           ├── controller/
+│   │   │           │   ├── ChickenBayController.java
+│   │   │           │   ├── DashboardController.java
+│   │   │           │   ├── EggsBayController.java
+│   │   │           │   ├── LoginController.java
+│   │   │           │   ├── MainWindowController.java
+│   │   │           │   ├── PersonnelController.java
+│   │   │           │   ├── SidebarController.java
+│   │   │           │   ├── StorageController.java
+│   │   │           │   └── TasksController.java
+│   │   │           │
+│   │   │           ├── dao/
+│   │   │           │   ├── ChickenDAO.java
+│   │   │           │   ├── DatabaseConnection.java
+│   │   │           │   ├── EggProductionDAO.java
+│   │   │           │   ├── EquipmentDAO.java
+│   │   │           │   ├── FeedDAO.java
+│   │   │           │   ├── HouseDAO.java
+│   │   │           │   ├── MedicationDAO.java
+│   │   │           │   ├── MortalityDAO.java
+│   │   │           │   ├── PersonnelDAO.java
+│   │   │           │   ├── TaskDAO.java
+│   │   │           │   └── UserDAO.java
+│   │   │           │
+│   │   │           ├── model/
+│   │   │           │   ├── Chicken.java
+│   │   │           │   ├── EggProduction.java
+│   │   │           │   ├── Equipment.java
+│   │   │           │   ├── Feed.java
+│   │   │           │   ├── House.java
+│   │   │           │   ├── Medication.java
+│   │   │           │   ├── Mortality.java
+│   │   │           │   ├── Personnel.java
+│   │   │           │   ├── Task.java
+│   │   │           │   └── User.java
+│   │   │           │
+│   │   │           ├── util/
+│   │   │           │   ├── DateUtil.java
+│   │   │           │   ├── NavigationUtil.java
+│   │   │           │   └── ValidationUtil.java
+│   │   │           │
+│   │   │           └── App.java
+│   │   │
+│   │   └── resources/
+│   │       ├── css/
+│   │       │   └── style.css
+│   │       │
+│   │       ├── database/
+│   │       │   └── schema.sql
+│   │       │
+│   │       ├── fxml/
+│   │       │   ├── ChickenBayView.fxml
+│   │       │   ├── DashboardView.fxml
+│   │       │   ├── EggsBayView.fxml
+│   │       │   ├── LoginView.fxml
+│   │       │   ├── MainWindow.fxml
+│   │       │   ├── PersonnelView.fxml
+│   │       │   ├── Sidebar.fxml
+│   │       │   ├── StorageView.fxml
+│   │       │   └── TasksView.fxml
+│   │       │
+│   │       └── images/
+│   │           ├── icons/
+│   │           │   ├── chicken.png
+│   │           │   ├── egg.png
+│   │           │   ├── personnel.png
+│   │           │   ├── storage.png
+│   │           │   └── task.png
+│   │           └── logo.png
+│   │
+│   └── test/
+│       └── java/
+│           └── ma/
+│               └── farm/
+│                   └── dao/
+│                       ├── ChickenDAOTest.java
+│                       ├── DatabaseConnectionTest.java
+│                       ├── EggProductionDAOTest.java
+│                       ├── PersonnelDAOTest.java
+│                       ├── TaskDAOTest.java
+│                       └── UserDAOTest.java
+│
+├── target/
+│   ├── classes/
+│   ├── generated-sources/
+│   ├── generated-test-sources/
+│   ├── maven-status/
+│   └── test-classes/
+│
+├── .gitignore
+├── LICENSE.txt
+├── pom.xml
+└── README.md                     
 ```
 
 ### Expandability Notes
